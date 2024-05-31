@@ -7,16 +7,23 @@ import SignUp from '../Auth/SignUp';
 import SignIn from '../Auth/SignIn';
 
 
+
 function App() {
   const [user, setUser] = useState(null)
-  useEffect(() => {
-    console.log('Hello');
-  });
+  useEffect(() => {// или loader route
+    axiosInstance.get("/token/refresh")  
+    .then((data) => {
+       const { accessToken, user } = data.data;
+       setUser(user);
+       SetAccessToken(accessToken);
+    })
+
+},[]);
 
   const router = createBrowserRouter([
     {
       path: "/", 
-      element: <Layout user={user}/>,
+      element: <Layout user={user} setUser={setUser}/>,
       children: [
         {
           path: "/signup",
@@ -31,11 +38,6 @@ function App() {
           path: "/signin",
           element: <SignIn user={user} setUser={setUser}/>,
         },
-        // {
-        //   path: "/logout",
-        //   element: <Logout/>,
-
-        // },
       ],
     }
   ])

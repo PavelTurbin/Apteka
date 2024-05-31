@@ -27,7 +27,6 @@ function Profile() {
     fetch(`/api/users/${userId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProfile(data);
       });
   };

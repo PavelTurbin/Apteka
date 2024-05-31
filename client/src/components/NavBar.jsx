@@ -49,9 +49,11 @@ function Menu({ user, setUser }) {
                     await axiosInstance.get("/auth/logout");
                     setUser(null);
                     SetAccessToken("");
+                    
                     }}
                   >
-                    Logout
+                    <Link to="/">Выход</Link>
+                    
                   </button>
                 </li>
               </>

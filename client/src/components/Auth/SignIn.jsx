@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { SetAccessToken } from "../../axiosInstance";
 function SignIn({user, setUser}) {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
@@ -20,6 +21,7 @@ function SignIn({user, setUser}) {
    
           setUser(data.user)
           SetAccessToken(data.accessToken)
+          window.location.href='/'
         }
       });
   };
@@ -52,7 +54,7 @@ function SignIn({user, setUser}) {
       />
       <div className="d-grid gap-1">
         <button onClick={(e) => logIn(e)} className="btn btn-success">
-          Войти
+        Войти
         </button>
       </div>
     </form>
