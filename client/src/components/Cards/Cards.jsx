@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import axiosInstance from "../../axiosInstance";
 
-function Cards() {
+function Cards({basket, setBasket, user, setUser}) {
   const [cards, setCards] = useState([]);
 
   async function loadCards() {
     const res = await axiosInstance.get("/drugs");
     setCards(res.data);
-   
   }
   useEffect(() => {
     loadCards();
@@ -17,10 +16,10 @@ function Cards() {
 
 
 
-  return <div>
+  return <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
     {
         cards.map((card) => {
-            return <Card key={card.id}  card={card} cards={cards} setCards={setCards} />;
+            return <Card addButton={true} key={card.id} user={user} setUser={setUser} basket={basket} setBasket={setBasket} card={card} cards={cards} setCards={setCards} />;
         })
     }
  

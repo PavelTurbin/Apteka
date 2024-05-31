@@ -7,7 +7,7 @@ function Menu({ user, setUser }) {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <Link to="/">За Ваше здоровье!</Link>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>За Ваше здоровье!</Link>
         </a>
         <button
           className="navbar-toggler"
@@ -26,12 +26,12 @@ function Menu({ user, setUser }) {
               <>
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">
-                    <Link to="/signup">Регистрация</Link>
+                    <Link to="/signup" style={{ textDecoration: 'none', color: 'inherit' }}>Регистрация</Link>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    <Link to="/signin">Вход</Link>
+                    <Link to="/signin" style={{ textDecoration: 'none', color: 'inherit' }}>Вход</Link>
                   </a>
                 </li>
               </>
@@ -39,7 +39,7 @@ function Menu({ user, setUser }) {
               <>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    <Link to="/basket">Корзина</Link>
+                    <Link to="/basket" style={{ textDecoration: 'none', color: 'inherit' }}>Корзина</Link>
                   </a>
                 </li>
                 <li className="nav-item">
@@ -52,7 +52,7 @@ function Menu({ user, setUser }) {
                     
                     }}
                   >
-                    <Link to="/">Выход</Link>
+                    <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Выход</Link>
                     
                   </button>
                 </li>
