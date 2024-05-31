@@ -5,13 +5,16 @@ import axiosInstance, { SetAccessToken } from "../../axiosInstance";
 import Cards from '../Cards/Cards';
 import SignUp from '../Auth/SignUp';
 import SignIn from '../Auth/SignIn';
+import Basket from '../Basket/Basket';
 
 
 
 function App() {
   const [user, setUser] = useState(null)
+
+const [basket, setBasket] = useState([])
   useEffect(() => {// или loader route
-    axiosInstance.get("/token/refresh")  
+    axiosInstance.get("/tokens/refresh")  
     .then((data) => {
        const { accessToken, user } = data.data;
        setUser(user);
@@ -32,11 +35,15 @@ function App() {
         },
         {
           path: "/",
-          element: <Cards/>,
+          element: <Cards user={user} setUser={setUser} basket={basket} setBasket={setBasket}/>,
         },
         {
           path: "/signin",
           element: <SignIn user={user} setUser={setUser}/>,
+        },
+        {
+          path: "/basket",
+          element: <Basket user={user} setUser={setUser} basket={basket} setBasket={setBasket}/>,
         },
       ],
     }

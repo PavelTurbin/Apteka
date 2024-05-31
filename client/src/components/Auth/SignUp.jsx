@@ -12,7 +12,7 @@ function SignUp() {
    function logIn(e) {
     e.preventDefault();
     const newForm = { ...signUpForm };
-    console.log( newForm);
+
     delete newForm.passwordAgain;
     setSignUpForm(newForm);
     
