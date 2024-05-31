@@ -33,11 +33,12 @@ router.get('/logout', async (req, res) => {
 // регистрация рабочая тема
 router.post('/signup', async (req, res) => {
   const { name, login, password, email } = req.body;
+  const hash = await bcrypt.hash(password, 10);
   try {
     const reg = await User.create({
       name,
       login,
-      password,
+      password:hash,
       email,
     });
     console.log(reg);
